@@ -17,6 +17,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button LoginBtn, RegisterBtn;
     private EditText loginid, loginpasswd;
     private CheckBox setid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +34,16 @@ public class LoginActivity extends AppCompatActivity{
             public void onClick(View v) {
                 String email = loginid.getText().toString().trim();
                 String pwd = loginpasswd.getText().toString().trim();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
-
+        RegisterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
