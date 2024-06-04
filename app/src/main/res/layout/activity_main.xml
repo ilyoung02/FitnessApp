@@ -46,7 +46,7 @@
             android:textStyle="bold"
             android:textColor="#000000"
             android:backgroundTint="#ffffff"
-            android:id="@+id/kBtn"/>
+            android:id="@+id/MapBtn"/>
         <Button
             android:layout_width="180dp"
             android:layout_height="100dp"

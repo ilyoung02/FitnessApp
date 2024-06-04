@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApp"
         tools:targetApi="31">
+        <activity android:name=".AerobicActivity"/>
+        <activity android:name=".CommunityActivity"/>
+        <activity android:name=".DiaryActivity"/>
+        <activity android:name=".MuscleActivity"/>
+        <activity android:name=".RoutineActivity"/>
+        <activity android:name=".MapActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SignupActivity"/>
