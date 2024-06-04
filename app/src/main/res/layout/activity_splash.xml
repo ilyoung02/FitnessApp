@@ -3,8 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffc2">
+    android:background="#F0F8FF">
 
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/health"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
