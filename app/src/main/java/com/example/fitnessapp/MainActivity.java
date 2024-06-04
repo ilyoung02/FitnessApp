@@ -18,58 +18,58 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button SBtn = (Button) findViewById(R.id.SBtn);
-        Button kBtn = (Button) findViewById(R.id.kBtn);
-        Button cBtn = (Button) findViewById(R.id.cBtn);
-        Button WBtn = (Button) findViewById(R.id.WBtn);
-        Button JBtn = (Button) findViewById(R.id.JBtn);
-        Button DBtn = (Button) findViewById(R.id.DBtn);
+        Button MapBtn = (Button) findViewById(R.id.MapBtn);
+        Button RoutineBtn = (Button) findViewById(R.id.cBtn);
+        Button MuscleBtn = (Button) findViewById(R.id.WBtn);
+        Button AerobicBtn = (Button) findViewById(R.id.JBtn);
+        Button CommunityBtn = (Button) findViewById(R.id.DBtn);
+        Button DiaryBtn = (Button) findViewById(R.id.SBtn);
         Button exitBtn = (Button) findViewById(R.id.exitBtn);
 
-        SBtn.setOnClickListener(new View.OnClickListener() {
+        MapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 startActivity(intent);
             }
         });
 
-        kBtn.setOnClickListener(new View.OnClickListener() {
+        RoutineBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RoutineActivity.class);
                 startActivity(intent);
             }
         });
 
-        JBtn.setOnClickListener(new View.OnClickListener() {
+        MuscleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MuscleActivity.class);
                 startActivity(intent);
             }
         });
 
-        WBtn.setOnClickListener(new View.OnClickListener() {
+        AerobicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AerobicActivity.class);
                 startActivity(intent);
             }
         });
 
-        cBtn.setOnClickListener(new View.OnClickListener() {
+        CommunityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CommunityActivity.class);
                 startActivity(intent);
             }
         });
 
-        DBtn.setOnClickListener(new View.OnClickListener() {
+        DiaryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DiaryActivity.class);
                 startActivity(intent);
             }
         });
