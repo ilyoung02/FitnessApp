@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button MapBtn = (Button) findViewById(R.id.MapBtn);
-        Button RoutineBtn = (Button) findViewById(R.id.cBtn);
+        Button GeofenceBtn = (Button) findViewById(R.id.cBtn);
         Button MuscleBtn = (Button) findViewById(R.id.WBtn);
-        Button AerobicBtn = (Button) findViewById(R.id.JBtn);
+        Button CheckBtn = (Button) findViewById(R.id.CheckBtn);
         Button CommunityBtn = (Button) findViewById(R.id.DBtn);
         Button DiaryBtn = (Button) findViewById(R.id.SBtn);
         Button exitBtn = (Button) findViewById(R.id.exitBtn);
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RoutineBtn.setOnClickListener(new View.OnClickListener() {
+        GeofenceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AerobicBtn.setOnClickListener(new View.OnClickListener() {
+        CheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AerobicActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
                 startActivity(intent);
             }
         });

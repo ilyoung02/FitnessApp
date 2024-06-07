@@ -28,6 +28,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(final GoogleMap googleMap) {
         mMap = googleMap;
 
+        //LatLng(35.868, 128.602) = 동성로
+        //LatLng(35.8322, 128.7539) = 영남대
         LatLng Yeongnam = new LatLng(35.8322, 128.7539);
 
         MarkerOptions markerOptions = new MarkerOptions();
