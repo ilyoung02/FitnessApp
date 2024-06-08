@@ -42,7 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private GeofencingClient geofencingClient;
     private GeoFenceHelper geofenceHelper;
-    private float GEOFENCE_RADIUS = 500;
+    private float GEOFENCE_RADIUS = 50;
     private String GEOFENCE_ID = "SOME_GEOFENCE_ID";
     private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
     private int BACKGROUND_LOCATION_ACCESS_REQUEST_CODE = 10002;
@@ -77,10 +77,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //LatLng(35.868, 128.602) = 동성로
         //LatLng(35.8322, 128.7539) = 영남대
         //테스트 용 LatLng(35.8710526, 128.5593409) = 공차
+        //테스트 용 LatLng(35.869965, 128.559561) = 집
         LatLng eiffel = new LatLng(35.8710526, 128.5593409);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(eiffel, 15));
 
+        LatLng targetLocation = new LatLng(35.869965, 128.559561);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(targetLocation, 15));
+
         enableUserLocation();
+
+        addMarker(targetLocation);
+        addCircle(targetLocation, GEOFENCE_RADIUS);
+        addGeofence(targetLocation, GEOFENCE_RADIUS);
 
         mMap.setOnMapLongClickListener(this);
     }
