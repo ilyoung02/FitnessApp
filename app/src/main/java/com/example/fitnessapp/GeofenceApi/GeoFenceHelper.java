@@ -1,4 +1,4 @@
-package com.example.fitnessapp;
+package com.example.fitnessapp.GeofenceApi;
 
 import android.app.PendingIntent;
 import android.content.Context;

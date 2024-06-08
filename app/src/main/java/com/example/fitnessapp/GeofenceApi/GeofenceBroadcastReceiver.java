@@ -1,6 +1,4 @@
-package com.example.fitnessapp;
-
-import static android.content.ContentValues.TAG;
+package com.example.fitnessapp.GeofenceApi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,6 +6,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.fitnessapp.LoginActivity;
+import com.example.fitnessapp.MainActivity;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingEvent;
 
