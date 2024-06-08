@@ -1,6 +1,4 @@
-package com.example.fitnessapp;
-
-import static android.content.ContentValues.TAG;
+package com.example.fitnessapp.GeofenceApi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,6 +6,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.fitnessapp.LoginActivity;
+import com.example.fitnessapp.MainActivity;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingEvent;
 
@@ -32,8 +32,8 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
             }
             return;
         }
-        
-        // 트리거 된 Geofence 목록 가져오기
+
+        // 빼도 됨
         List<Geofence> geofenceList = geofencingEvent.getTriggeringGeofences();
         for (Geofence geofence : geofenceList) {
             Log.d(TAG, "onReceive: " + geofence.getRequestId());
@@ -44,19 +44,34 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
         switch (transitionType) {
             case Geofence.GEOFENCE_TRANSITION_ENTER:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_ENTER", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("GEOFENCE_TRANSITION_ENTER", "You have entered the geofence area.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장 출석", "출석을 완료하셨습니다.", MainActivity.class);
+                startMainActivity(context);
                 break;
             case Geofence.GEOFENCE_TRANSITION_DWELL:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_DWELL", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("GEOFENCE_TRANSITION_DWELL", "You are dwelling within the geofence area.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장", "운동중입니다!.", MapsActivity.class);
+                startMainActivity(context);
                 break;
             case Geofence.GEOFENCE_TRANSITION_EXIT:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_EXIT", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("GEOFENCE_TRANSITION_EXIT", "You have exited the geofence area.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장 퇴장", "헬스장 위치에서 벗어나셨습니다.", MapsActivity.class);
+                startLoginActivity(context);
                 break;
             default:
                 Log.d(TAG, "onReceive: Unknown geofence transition");
                 break;
         }
+    }
+
+    private void startMainActivity(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+    private void startLoginActivity(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
     }
 }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -14,7 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.fitnessapp.domain.User;
 
 public class MainActivity extends AppCompatActivity {
+import com.example.fitnessapp.GeofenceApi.MapActivity;
+import com.example.fitnessapp.GeofenceApi.MapsActivity;
 
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CommunityActivity.class);
                 startActivity(intent);
             }
         });
@@ -101,3 +103,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+

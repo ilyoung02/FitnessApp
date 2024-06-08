@@ -35,12 +35,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAUVXDUyRmUM-DiIfkptdnms48aToE_UdA" />
 
-        <receiver android:name=".GeofenceBroadcastReceiver"
+        <receiver android:name=".GeofenceApi.GeofenceBroadcastReceiver"
             android:enabled="true"
             android:exported="true"/>
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".GeofenceApi.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
 
@@ -49,13 +49,13 @@
         <activity android:name=".DiaryActivity"/>
         <activity android:name=".MuscleActivity"/>
         <activity android:name=".RoutineActivity"/>
-        <activity android:name=".MapActivity"/>
+        <activity android:name=".GeofenceApi.MapActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SignupActivity"/>
         <activity android:name=".CheckActivity"/>
         <activity
-            android:name=".SplashActivity"
+            android:name=".SplashScreen.SplashActivity"
             android:exported="true"
             android:label="Splash">
             <intent-filter>

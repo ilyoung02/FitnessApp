@@ -1,26 +1,20 @@
-package com.example.fitnessapp;
-
-import static android.content.ContentValues.TAG;
+package com.example.fitnessapp.GeofenceApi;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import android.annotation.SuppressLint;
 import android.app.PendingIntent;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 import android.Manifest;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
+import com.example.fitnessapp.R;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
@@ -32,18 +26,18 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.fitnessapp.databinding.ActivityMapBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
     private GeofencingClient geofencingClient;
     private GeoFenceHelper geofenceHelper;
-    private float GEOFENCE_RADIUS = 500;
-    private String GEOFENCE_ID = "SOME_GEOFENCE_ID";
+    private float GEOFENCE_RADIUS = 50;
+    private String GEOFENCE_ID_PREFIX = "GEOFENCE_ID_";
     private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
     private int BACKGROUND_LOCATION_ACCESS_REQUEST_CODE = 10002;
 
@@ -73,14 +67,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        //LatLng(35.868, 128.602) = 동성로
-        //LatLng(35.8322, 128.7539) = 영남대
-        //테스트 용 LatLng(35.8710526, 128.5593409) = 공차
-        LatLng eiffel = new LatLng(35.8710526, 128.5593409);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(eiffel, 15));
-
         enableUserLocation();
+
+        LatLng targetLocation = new LatLng(35.8710526, 128.5593409);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(targetLocation, 15));
+
+        List<LatLng> gymLocations = HealthLocation.getAllGymLocations();
+        for (int i = 0; i < gymLocations.size(); i++) {
+            LatLng gymLocation = gymLocations.get(i);
+            String geofenceId = GEOFENCE_ID_PREFIX + i;
+            addMarker(gymLocation);
+            addCircle(gymLocation, GEOFENCE_RADIUS);
+            addGeofence(gymLocation, GEOFENCE_RADIUS, geofenceId);
+        }
 
         mMap.setOnMapLongClickListener(this);
     }
@@ -110,9 +109,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     return;
                 }
                 mMap.setMyLocationEnabled(true);
-            } else {
-                //We do not have the permission..
-
             }
         }
 
@@ -139,47 +135,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             handleMapLongClick(latLng);
         }
-
     }
 
     private void handleMapLongClick(LatLng latLng) {
         mMap.clear();
         addMarker(latLng);
         addCircle(latLng, GEOFENCE_RADIUS);
-        addGeofence(latLng, GEOFENCE_RADIUS);
+        addGeofence(latLng, GEOFENCE_RADIUS, GEOFENCE_ID_PREFIX + "custom");
     }
 
-    private void addGeofence(LatLng latLng, float radius) {
-
-        Geofence geofence = geofenceHelper.getGeofence(GEOFENCE_ID, latLng, radius, Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_DWELL | Geofence.GEOFENCE_TRANSITION_EXIT);
+    private void addGeofence(LatLng latLng, float radius, String geofenceId) {
+        Geofence geofence = geofenceHelper.getGeofence(geofenceId, latLng, radius, Geofence.GEOFENCE_TRANSITION_ENTER);
         GeofencingRequest geofencingRequest = geofenceHelper.getGeofencingRequest(geofence);
         PendingIntent pendingIntent = geofenceHelper.getPendingIntent(this);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         geofencingClient.addGeofences(geofencingRequest, pendingIntent)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "onSuccess: Geofence Added...");
+                        Log.d(TAG, "Geofence Added: " + geofenceId);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         String errorMessage = geofenceHelper.getErrorString(e);
-                        Log.d(TAG, "onFailure: " + errorMessage);
+                        Log.d(TAG, "Geofence Not Added: " + errorMessage);
                     }
                 });
     }
+
 
     private void addMarker(LatLng latLng) {
         MarkerOptions markerOptions = new MarkerOptions().position(latLng);

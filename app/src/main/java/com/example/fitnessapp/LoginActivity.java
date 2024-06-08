@@ -1,16 +1,12 @@
 package com.example.fitnessapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fitnessapp.config.ApiService;
@@ -20,6 +16,7 @@ import com.example.fitnessapp.domain.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.example.fitnessapp.GeofenceApi.MapsActivity;
 
 public class LoginActivity extends AppCompatActivity{
     private Button LoginBtn, RegisterBtn;
@@ -46,6 +43,10 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 login();
+                String email = loginid.getText().toString().trim();
+                String pwd = loginpasswd.getText().toString().trim();
+                Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
+                startActivity(intent);
             }
         });
         RegisterBtn.setOnClickListener(new View.OnClickListener() {
