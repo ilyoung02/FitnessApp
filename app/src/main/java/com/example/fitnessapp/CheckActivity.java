@@ -16,6 +16,7 @@ import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.Manifest;
@@ -23,13 +24,14 @@ import android.content.Intent;
 import android.widget.Toast;
 
 public class CheckActivity extends AppCompatActivity {
+    private GoogleMap mMap;
     private GeofencingClient geofencingClient;
     private GeoFenceHelper geofenceHelper;
     private TextView checkStatus;
     private Button startChecking;
 
     private static final String GEOFENCE_ID = "CHECK_GEOFENCE_ID";
-    private static final float GEOFENCE_RADIUS = 200; // meters
+    private static final float GEOFENCE_RADIUS = 50; // meters
     private static final int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
     private static final int BACKGROUND_LOCATION_ACCESS_REQUEST_CODE = 10002;
 
@@ -65,6 +67,7 @@ public class CheckActivity extends AppCompatActivity {
             // 특정 위치의 좌표 설정
             // 테스트 용 LatLng(35.8710526, 128.5593409) = 공차 위치
             LatLng checkLocation = new LatLng(35.8710526, 128.5593409);
+
             addGeofence(checkLocation, GEOFENCE_RADIUS);
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,6 +101,14 @@ public class CheckActivity extends AppCompatActivity {
                     checkStatus.setText("Failed to add geofence: " + errorMessage);
                     Toast.makeText(CheckActivity.this, "Failed to add geofence", Toast.LENGTH_SHORT).show();
                 });
+    }
+
+    private void enableUserLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
+        }
     }
 
     @Override

@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity{
             public void onClick(View v) {
                 String email = loginid.getText().toString().trim();
                 String pwd = loginpasswd.getText().toString().trim();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

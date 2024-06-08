@@ -33,7 +33,7 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
             return;
         }
 
-        // 트리거 된 Geofence 목록 가져오기
+        // 빼도 됨
         List<Geofence> geofenceList = geofencingEvent.getTriggeringGeofences();
         for (Geofence geofence : geofenceList) {
             Log.d(TAG, "onReceive: " + geofence.getRequestId());
@@ -44,7 +44,7 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
         switch (transitionType) {
             case Geofence.GEOFENCE_TRANSITION_ENTER:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_ENTER", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("GEOFENCE_TRANSITION_ENTER", "You have entered the geofence area.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장 출석", "출석이 완료 되었습니다.", MainActivity.class);
                 break;
             case Geofence.GEOFENCE_TRANSITION_DWELL:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_DWELL", Toast.LENGTH_SHORT).show();
@@ -52,7 +52,7 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
                 break;
             case Geofence.GEOFENCE_TRANSITION_EXIT:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_EXIT", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("GEOFENCE_TRANSITION_EXIT", "You have exited the geofence area.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장 퇴장", "헬스장에서 나오셨습니다.", MapsActivity.class);
                 break;
             default:
                 Log.d(TAG, "onReceive: Unknown geofence transition");
