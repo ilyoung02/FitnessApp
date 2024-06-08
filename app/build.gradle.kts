@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-    implementation("com.kakao.maps.open:android:2.9.7")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation ("com.squareup.retrofit2:retrofit:2.6.2") // retrofit 사용
