@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.fitnessapp.GeofenceApi.MapActivity;
 import com.example.fitnessapp.GeofenceApi.MapsActivity;
 
+import com.example.fitnessapp.domain.User;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,5 +96,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }
 
