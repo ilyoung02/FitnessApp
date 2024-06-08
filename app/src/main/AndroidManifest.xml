@@ -33,7 +33,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAUVXDUyRmUM-DiIfkptdnms48aToE_UdA" />
+            android:value="MAP_KEY" />
 
         <receiver android:name=".GeofenceApi.GeofenceBroadcastReceiver"
             android:enabled="true"
