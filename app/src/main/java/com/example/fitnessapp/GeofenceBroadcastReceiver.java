@@ -32,7 +32,7 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
             }
             return;
         }
-        
+
         // 트리거 된 Geofence 목록 가져오기
         List<Geofence> geofenceList = geofencingEvent.getTriggeringGeofences();
         for (Geofence geofence : geofenceList) {
