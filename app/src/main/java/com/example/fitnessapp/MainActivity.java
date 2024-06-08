@@ -14,6 +14,8 @@ import com.example.fitnessapp.GeofenceApi.MapsActivity;
 
 import com.example.fitnessapp.domain.User;
 
+import com.example.fitnessapp.domain.User;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
