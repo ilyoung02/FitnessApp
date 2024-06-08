@@ -1,5 +1,8 @@
+import org.gradle.internal.impldep.org.bouncycastle.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -8,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.fitnessapp"
-        minSdk = 28
+        minSdk = 27
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -29,12 +32,24 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    buildToolsVersion = "34.0.0"
+    ndkVersion = "27.0.11902837 rc2"
 }
 
 dependencies {
+    implementation("com.kakao.maps.open:android:2.9.7")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.6.2") // retrofit 사용
+    implementation ("com.squareup.retrofit2:converter-gson:2.6.0") // 응답 결과가 JSON일 때 객체로 변경
+
 
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

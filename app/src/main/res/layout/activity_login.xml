@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffc2">
+    android:background="#F0F8FF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,13 +16,15 @@
             android:layout_weight="2"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Health Buddy"
-                android:textSize="40dp"
+                android:textSize="50dp"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="80dp"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
         </LinearLayout>
 
         <TextView
