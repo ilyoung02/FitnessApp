@@ -1,4 +1,4 @@
-package com.example.fitnessapp;
+package com.example.fitnessapp.GeofenceApi;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -15,6 +15,8 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
+import com.example.fitnessapp.R;
 
 import java.util.Random;
 

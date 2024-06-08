@@ -10,6 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fitnessapp.GeofenceApi.MapActivity;
+import com.example.fitnessapp.GeofenceApi.MapsActivity;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
