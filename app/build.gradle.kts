@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.fitnessapp"
-        minSdk = 27
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -43,6 +43,7 @@ dependencies {
     implementation("com.kakao.maps.open:android:2.9.7")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.gms:play-services-location:21.3.0")
+
     implementation ("com.squareup.retrofit2:retrofit:2.6.2") // retrofit 사용
     implementation ("com.squareup.retrofit2:converter-gson:2.6.0") // 응답 결과가 JSON일 때 객체로 변경
 
