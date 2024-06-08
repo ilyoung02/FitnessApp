@@ -118,9 +118,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     return;
                 }
                 mMap.setMyLocationEnabled(true);
-            } else {
-                //We do not have the permission..
-
             }
         }
 
@@ -147,7 +144,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             handleMapLongClick(latLng);
         }
-
     }
 
     private void handleMapLongClick(LatLng latLng) {
