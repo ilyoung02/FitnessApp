@@ -44,19 +44,34 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
         switch (transitionType) {
             case Geofence.GEOFENCE_TRANSITION_ENTER:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_ENTER", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("헬스장 출석", "출석이 완료 되었습니다.", MainActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장 출석", "출석을 완료하셨습니다.", MainActivity.class);
+                startMainActivity(context);
                 break;
             case Geofence.GEOFENCE_TRANSITION_DWELL:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_DWELL", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("GEOFENCE_TRANSITION_DWELL", "You are dwelling within the geofence area.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장", "운동중입니다!.", MapsActivity.class);
+                startMainActivity(context);
                 break;
             case Geofence.GEOFENCE_TRANSITION_EXIT:
                 Toast.makeText(context, "GEOFENCE_TRANSITION_EXIT", Toast.LENGTH_SHORT).show();
-                notificationHelper.sendHighPriorityNotification("헬스장 퇴장", "헬스장에서 나오셨습니다.", MapsActivity.class);
+                notificationHelper.sendHighPriorityNotification("헬스장 퇴장", "헬스장 위치에서 벗어나셨습니다.", MapsActivity.class);
+                startLoginActivity(context);
                 break;
             default:
                 Log.d(TAG, "onReceive: Unknown geofence transition");
                 break;
         }
+    }
+
+    private void startMainActivity(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+    private void startLoginActivity(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
     }
 }
