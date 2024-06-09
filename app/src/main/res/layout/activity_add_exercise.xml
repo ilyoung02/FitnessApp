@@ -63,7 +63,7 @@
             <ListView
                 android:id="@+id/exerciseListView"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="400dp"
                 android:layout_weight="1"
                 android:divider="@android:color/darker_gray"
                 android:dividerHeight="1dp" />
@@ -86,7 +86,7 @@
             android:layout_marginTop="8dp"
             android:padding="8dp"
             android:background="#F0F0F0">
-            <!-- 선택된 항목은 동적으로 추가됩니다 -->
+            <!-- 선택된 항목 동적 추가 -->
         </LinearLayout>
     </LinearLayout>
 
