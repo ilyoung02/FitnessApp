@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 제목과 닫기 버튼을 포함 상단 바 -->
+    <RelativeLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="8dp"
+        android:background="#F5F5F5">
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 추가"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <!-- 운동 목록과 선택된 항목을 포함 레이아웃 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/topbar"
+        android:layout_marginTop="16dp">
+
+        <!-- 운동 목록 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- 운동 카테고리 -->
+            <ListView
+                android:id="@+id/categoryListView"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="#B2DFDB"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp" />
+
+            <!-- 운동 항목 -->
+            <ListView
+                android:id="@+id/exerciseListView"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <!-- 선택된 항목 표시 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택된 항목"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/selectedItemsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:background="#F0F0F0">
+            <!-- 선택된 항목은 동적으로 추가됩니다 -->
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 추가 완료 버튼 -->
+    <android.widget.Button
+        android:id="@+id/completeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="추가 완료"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#66d7d7"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

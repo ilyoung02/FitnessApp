@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity{
 
     private ApiService apiService;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +84,5 @@ public class LoginActivity extends AppCompatActivity{
 
             }
         });
-
-
     }
 }
