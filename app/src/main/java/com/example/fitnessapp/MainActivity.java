@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fitnessapp.GeofenceApi.MapActivity;
 import com.example.fitnessapp.GeofenceApi.MapsActivity;
-import com.example.fitnessapp.domain.User;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button MapBtn = (Button) findViewById(R.id.MapBtn);
         Button GeofenceBtn = (Button) findViewById(R.id.cBtn);
-        Button MuscleBtn = (Button) findViewById(R.id.WBtn);
-        Button CheckBtn = (Button) findViewById(R.id.CheckBtn);
-        Button CommunityBtn = (Button) findViewById(R.id.DBtn);
+        Button FinishBtn = (Button) findViewById(R.id.WBtn);
+        Button RoutineBtn = (Button) findViewById(R.id.CheckBtn);
+        Button AddBtn = (Button) findViewById(R.id.DBtn);
         Button DiaryBtn = (Button) findViewById(R.id.SBtn);
         Button exitBtn = (Button) findViewById(R.id.exitBtn);
 
@@ -43,26 +43,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MuscleBtn.setOnClickListener(new View.OnClickListener() {
+        FinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MuscleActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FinishActivity.class);
                 startActivity(intent);
             }
         });
 
-        CheckBtn.setOnClickListener(new View.OnClickListener() {
+        RoutineBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CommunityActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RoutineActivity.class);
                 startActivity(intent);
             }
         });
 
-        CommunityBtn.setOnClickListener(new View.OnClickListener() {
+        AddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CommunityActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AddExerciseActivity.class);
                 startActivity(intent);
             }
         });
