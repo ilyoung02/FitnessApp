@@ -17,24 +17,14 @@
         android:textSize="40dp" />
 
     <EditText
-        android:id="@+id/input_email"
+        android:id="@+id/input_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="20dp"
         android:textColorHint="@color/black"
-        android:hint="이메일 주소" />
-
-    <EditText
-        android:id="@+id/input_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="20dp"
-        android:textColorHint="@color/black"
-        android:hint="이름" />
+        android:hint="id" />
 
     <EditText
         android:id="@+id/input_password"
@@ -43,20 +33,9 @@
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="20dp"
-        android:hint="비밀번호"
+        android:hint="password"
         android:textColorHint="@color/black"
         android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/input_age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="20dp"
-        android:textColorHint="@color/black"
-        android:hint="나이" />
 
     <LinearLayout
         android:layout_width="match_parent"
