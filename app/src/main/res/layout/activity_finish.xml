@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘도 고생하셨습니다 !"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="챌린지 도전 34일차"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_below="@id/titleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Card View -->
+    <RelativeLayout
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subtitleTextView"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="#e0ffff"
+        android:elevation="4dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <!-- Date -->
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6월 4일"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Weight lifted -->
+        <TextView
+            android:id="@+id/weightLiftedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오늘 들어올린 무게"
+            android:textSize="16sp"
+            android:textColor="#66d7d7"
+            android:layout_below="@id/dateTextView"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/weightLiftedValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="215 kcal"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_below="@id/weightLiftedTextView"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Calories burned -->
+        <TextView
+            android:id="@+id/caloriesBurnedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오늘 태운 칼로리"
+            android:textSize="16sp"
+            android:textColor="#66d7d7"
+            android:layout_below="@id/weightLiftedValueTextView"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/caloriesBurnedValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45kg"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_below="@id/caloriesBurnedTextView"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Exercise Time -->
+        <TextView
+            android:id="@+id/exerciseTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 시간"
+            android:textSize="16sp"
+            android:textColor="#66d7d7"
+            android:layout_below="@id/caloriesBurnedValueTextView"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/exerciseTimeValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01 : 35 : 23"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_below="@id/exerciseTimeTextView"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Feedback -->
+        <TextView
+            android:id="@+id/feedbackTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오늘의 피드백"
+            android:textSize="16sp"
+            android:textColor="#66d7d7"
+            android:layout_below="@id/exerciseTimeValueTextView"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/feedbackValueTextView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/feedbackTextView"
+            android:background="#EEEEEE"
+            android:padding="8dp"/>
+    </RelativeLayout>
+
+    <!-- Complete Button -->
+    <android.widget.Button
+        android:id="@+id/completeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="운동 완료"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#e0ffff"
+        android:layout_below="@id/cardView"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+</RelativeLayout>

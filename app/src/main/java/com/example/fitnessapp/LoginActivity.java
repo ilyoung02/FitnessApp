@@ -16,11 +16,11 @@ public class LoginActivity extends AppCompatActivity{
     private EditText loginid, loginpasswd;
     private CheckBox setid;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         LoginBtn = (Button) findViewById(R.id.LoginBtn);
         RegisterBtn = (Button) findViewById(R.id.RegisterBtn);
         loginid = (EditText) findViewById(R.id.loginid);
@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity{
         LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                login();
                 String email = loginid.getText().toString().trim();
                 String pwd = loginpasswd.getText().toString().trim();
                 Intent intent = new Intent(LoginActivity.this, MapsActivity.class);
@@ -43,5 +44,10 @@ public class LoginActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+    }
+
+    private void login(){
+        String id = loginid.getText().toString().trim();
+        String password = loginpasswd.getText().toString().trim();
     }
 }

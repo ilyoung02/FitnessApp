@@ -43,10 +43,11 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
 
+        <activity android:name=".AddExerciseActivity"/>
+        <activity android:name=".FinishActivity"/>
         <activity android:name=".AerobicActivity"/>
         <activity android:name=".CommunityActivity"/>
         <activity android:name=".DiaryActivity"/>
-        <activity android:name=".MuscleActivity"/>
         <activity android:name=".RoutineActivity"/>
         <activity android:name=".GeofenceApi.MapActivity"/>
         <activity android:name=".MainActivity"/>
