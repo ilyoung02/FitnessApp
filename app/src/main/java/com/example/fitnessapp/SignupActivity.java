@@ -52,14 +52,12 @@ public class SignupActivity  extends AppCompatActivity{
                 join();
             }
         });
-
     }
 
 
     private void join(){
         String password = input_password.getText().toString().trim();
         String id = input_id.getText().toString().trim();
-
         User user=new User();
         user.setId(id);
         user.setPassword(password);
@@ -83,5 +81,4 @@ public class SignupActivity  extends AppCompatActivity{
             }
         });
     }
-
 }
