@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.fitnessapp.GeofenceApi.MapsActivity;
 import com.example.fitnessapp.config.ApiService;
 import com.example.fitnessapp.config.RetrofitClient;
 import com.example.fitnessapp.domain.User;
@@ -18,6 +16,7 @@ import com.example.fitnessapp.domain.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.example.fitnessapp.GeofenceApi.MapsActivity;
 
 public class LoginActivity extends AppCompatActivity{
     private Button LoginBtn, RegisterBtn;
