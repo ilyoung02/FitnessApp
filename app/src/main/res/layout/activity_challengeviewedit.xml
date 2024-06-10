@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChallengeViewEditActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시티드 케이블 로우"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:id="@+id/set_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Set 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1세트"
+                android:textSize="16sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="kg"
+                android:ems="4" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="횟수"
+                android:ems="4" />
+        </LinearLayout>
+
+        <!-- Add more sets dynamically -->
+    </LinearLayout>
+
+    <android.widget.Button
+        android:id="@+id/add_set_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="세트 추가"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:background="#e0ffff"/>
+
+    <EditText
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="운동 피드백 메모를 남겨주세요."
+        android:padding="16dp"
+        android:gravity="top"
+        android:lines="4"
+        android:background="@android:drawable/edit_text" />
+
+    <android.widget.Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="수정 완료"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:background="#e0ffff"/>
+</LinearLayout>
